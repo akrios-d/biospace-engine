@@ -1,0 +1,67 @@
+.publications-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  .search-bar {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+
+    .card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .title {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      .abstract {
+        font-size: 0.9rem;
+        color: #555;
+        margin-bottom: 0.5rem;
+      }
+
+      .tags {
+        margin-bottom: 0.5rem;
+
+        .tag {
+          background: #007bff;
+          color: #fff;
+          padding: 0.2rem 0.5rem;
+          margin-right: 0.3rem;
+          border-radius: 4px;
+          font-size: 0.8rem;
+        }
+      }
+
+      .view-more {
+        align-self: flex-start;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+        transition: color 0.2s;
+
+        &:hover {
+          color: #0056b3;
+        }
+      }
+    }
+  }
+}
