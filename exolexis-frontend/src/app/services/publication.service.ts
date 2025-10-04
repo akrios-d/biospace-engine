@@ -11,12 +11,12 @@ export interface Publication {
   link: string;
 }
 
-@Injectable({ providedIn: 'root' })  // keeps it globally injectable
+@Injectable({
+  providedIn: 'root'
+})
 export class PublicationService {
-  private apiUrl = 'http://localhost:8081/publications';
-
+  private apiUrl = 'http://localhost:8081/api/publications';
   constructor(private http: HttpClient) {}
-
   getPublications(): Observable<Publication[]> {
     return this.http.get<Publication[]>(this.apiUrl);
   }

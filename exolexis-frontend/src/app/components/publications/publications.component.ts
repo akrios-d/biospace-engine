@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PublicationService, Publication } from '../../services/publication.service';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';  // Add this import
+
+import { PublicationService, Publication } from '../../services/publication.service';
 
 @Component({
   selector: 'app-publications',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],  // Include HttpClientModule
   templateUrl: './publications.component.html',
   styleUrls: ['./publications.component.scss']
 })

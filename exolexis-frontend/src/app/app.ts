@@ -5,7 +5,7 @@ import { PublicationsComponent } from './components/publications/publications.co
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PublicationsComponent],
+  imports: [PublicationsComponent],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
