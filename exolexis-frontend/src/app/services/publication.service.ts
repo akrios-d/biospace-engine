@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 export interface Publication {
   _id: string;
   title: string;
-  abstractText: string;
+  abstractText?: string | null;
   categories?: string[];
   tags?: string[];
   link: string;

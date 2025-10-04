@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/publications")
@@ -19,7 +20,7 @@ public class PublicationController {
 
     @GetMapping
     public List<Publication> all() {
-        return repo.findAll();
+        return repo.findValidPublications();
     }
 
     @GetMapping("/{id}")

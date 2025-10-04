@@ -9,13 +9,23 @@
   <div class="cards">
     <div class="card" *ngFor="let pub of filteredPublications()">
       <h3 class="title">{{ pub.title }}</h3>
-      <p class="abstract">
+
+      <!-- Safely render abstractText, if it exists -->
+      <p class="abstract" *ngIf="pub.abstractText; else noAbstract">
         {{ pub.abstractText | slice:0:50 }}{{ pub.abstractText.length > 50 ? '...' : '' }}
       </p>
-      <div class="tags">
+      <ng-template #noAbstract>
+        <p class="abstract no-abstract">No abstract available.</p>
+      </ng-template>
+
+      <!-- Safely render tags if they exist -->
+      <div class="tags" *ngIf="pub.tags?.length">
         <span class="tag" *ngFor="let t of pub.tags">{{ t }}</span>
       </div>
-      <a class="view-more" [href]="pub.link" target="_blank">View More</a>
+
+      <a class="view-more" [href]="pub.link" target="_blank" rel="noopener noreferrer">
+        View More
+      </a>
     </div>
   </div>
 </div>
