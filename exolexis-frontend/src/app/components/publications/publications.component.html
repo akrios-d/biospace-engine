@@ -1,12 +1,31 @@
 <div class="publications-container">
-  <div class="search-bar-container">
-    <input
-      type="text"
-      [(ngModel)]="filter"
-      placeholder="Search by title, abstract, tags..."
-      class="search-bar"
-    />
-    <button *ngIf="filter" class="clear-btn" (click)="filter=''">✕</button>
+  <div class="header">
+    <!-- Logo -->
+    <div class="logo">
+      <!-- You can replace this with your SVG logo or image -->
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3f51b5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M8 12l2 2 4-4"></path>
+      </svg>
+      <span class="logo-text">BioSpace</span>
+    </div>
+
+    <div class="search-bar-container">
+      <input
+        type="text"
+        [(ngModel)]="filter"
+        placeholder="Search by title, abstract, tags..."
+        class="search-bar"
+      />
+      <button *ngIf="filter" class="clear-btn" (click)="filter=''">✕</button>
+      <!-- Search icon inside input -->
+      <div class="search-icon">
+        <svg width="20" height="20" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </div>
+    </div>
   </div>
 
   <div class="cards">
