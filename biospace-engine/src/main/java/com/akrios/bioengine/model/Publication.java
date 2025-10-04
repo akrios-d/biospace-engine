@@ -1,16 +1,14 @@
 package com.akrios.bioengine.model;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
 @Document(collection = "publications")
-@Getter
-@Setter
+@Data
 public class Publication {
 
     @Id
