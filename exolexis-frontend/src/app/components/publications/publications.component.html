@@ -1,26 +1,31 @@
 <div class="publications-container">
-  <input
-    type="text"
-    [(ngModel)]="filter"
-    placeholder="Search publications..."
-    class="search-bar"
-  />
+  <div class="search-bar-container">
+    <input
+      type="text"
+      [(ngModel)]="filter"
+      placeholder="Search by title, abstract, tags..."
+      class="search-bar"
+    />
+    <button *ngIf="filter" class="clear-btn" (click)="filter=''">✕</button>
+  </div>
 
   <div class="cards">
     <div class="card" *ngFor="let pub of filteredPublications()">
       <h3 class="title">{{ pub.title }}</h3>
 
-      <!-- Safely render abstractText, if it exists -->
       <p class="abstract" *ngIf="pub.abstractText; else noAbstract">
-        {{ pub.abstractText | slice:0:50 }}{{ pub.abstractText.length > 50 ? '...' : '' }}
+        {{ pub.abstractText | slice:0:100 }}{{ pub.abstractText.length > 100 ? '...' : '' }}
       </p>
       <ng-template #noAbstract>
         <p class="abstract no-abstract">No abstract available.</p>
       </ng-template>
 
-      <!-- Safely render tags if they exist -->
       <div class="tags" *ngIf="pub.tags?.length">
         <span class="tag" *ngFor="let t of pub.tags">{{ t }}</span>
+      </div>
+
+      <div class="categories" *ngIf="pub.categories?.length">
+        <span class="category" *ngFor="let c of pub.categories">{{ c }}</span>
       </div>
 
       <a class="view-more" [href]="pub.link" target="_blank" rel="noopener noreferrer">
