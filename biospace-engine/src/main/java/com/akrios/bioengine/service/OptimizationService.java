@@ -40,9 +40,7 @@ public class OptimizationService {
             double total = 0.75 * matchScore + 0.15 * profileBonus + 0.10 * lenBonus;
             p.setScore(total);
         }
-
-        // sort desc by score
-
+        
         return pubs.stream()
                 .sorted(Comparator.comparingDouble(Publication::getScore).reversed())
                 .limit(req.getK() <= 0 ? 20 : req.getK())
@@ -73,12 +71,12 @@ public class OptimizationService {
     private double profileBonus(String profile, Publication p) {
         if (profile == null) profile = "scientist";
         profile = profile.toLowerCase();
-        switch (profile) {
-            case "scientist": return 0.1;
-            case "manager": return 0.06;
-            case "architect": return 0.08;
-            default: return 0.05;
-        }
+        return switch (profile) {
+            case "scientist" -> 0.1;
+            case "manager" -> 0.06;
+            case "architect" -> 0.08;
+            default -> 0.05;
+        };
     }
 
     private double titleLengthBonus(Publication p) {

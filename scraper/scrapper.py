@@ -85,7 +85,7 @@ def get_abstract(link):
         # Extract normal abstract by ID
         # -----------------------------
         abstract = ""
-        for aid in ["abstract2", "abstract1", "Abs1", "ab0005", "abs0010", "ABS1", "aps31197-abs-0001cl"]:
+        for aid in ["Par2", "abstract2", "abstract1", "Abs1", "ab0005", "abs0010", "ABS1", "aps31197-abs-0001cl"]:
             ab = soup.find(id=aid)
             if ab:
                 abstract = " ".join(p.get_text(strip=True) for p in ab.find_all("p"))
